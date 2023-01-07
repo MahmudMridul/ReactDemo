@@ -1,9 +1,19 @@
 import './App.css';
+import Navigation from './components/layouts/Navigation';
+import { Outlet } from 'react-router-dom';
 
 export default function App() {
     return (
-        <div>
-            <h1>Hello</h1>
+        <div className='container'>
+
+            <div>
+                <Navigation/>
+            </div>
+
+            <div>
+                <Outlet/>
+            </div>
+            
         </div>
     );
 }
