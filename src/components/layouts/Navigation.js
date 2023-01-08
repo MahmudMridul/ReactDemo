@@ -1,26 +1,27 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem } from 'reactstrap';
+
+import style from '../../css/Navigation.module.css';
 
 export default function Navigation() {
     return (
         <Nav
-            card
+            className={style.colors}
             fill
             justified
             pills
-            tabs
         >
-            <NavItem> 
-                <Link to='/'><h4>Home</h4></Link>
+            <NavItem className={style.topGap}> 
+                <Link to='/' className={style.noDecoration}> <h4>Home</h4> </Link>
             </NavItem>
 
-            <NavItem> 
-                <Link to='/list'><h4>List</h4></Link>
+            <NavItem className={style.topGap}> 
+                <Link to='/add' className={style.noDecoration}><h4>Add</h4></Link>
             </NavItem>
 
-            <NavItem>
-                <NavLink href="#"> <h4>Contact</h4> </NavLink>
+            <NavItem className={style.topGap}>
+                <Link to='/list' className={style.noDecoration}><h4>List</h4></Link>
             </NavItem>
  
         </Nav>

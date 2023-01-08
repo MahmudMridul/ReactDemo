@@ -1,0 +1,14 @@
+.colors {
+    background-color: #3e4444;
+    margin-top: 5px;
+    border-radius: 20px;
+}
+
+.topGap {
+    margin-top: 10px;
+}
+
+.noDecoration {
+    color: white;
+    text-decoration: none;
+}

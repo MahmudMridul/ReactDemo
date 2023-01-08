@@ -1,20 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import DataListContainer from './components/DataListContainer';
+import DataForm from './components/DataForm';
 
 const routes = createBrowserRouter([
     {
         path: '/', 
-        element: <App/>,
-        children: [
-            {
-                path: '/list',
-                element: <DataListContainer/>
-            }
-        ]
+        element: <App/>
+    },
+    {
+        path: '/add', 
+        element: <DataForm/>
     }
 ]);
 
