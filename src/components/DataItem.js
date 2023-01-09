@@ -1,7 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, CardBody, CardImg, CardTitle, CardText, Col } from 'reactstrap';
+import { Card, CardBody, CardImg, CardTitle, CardText, Col, Button, ButtonGroup } from 'reactstrap';
+import { useNavigate } from 'react-router';
 
 export default function DataItem(props) {
+
+    const navigate = useNavigate();
+
     return (
         <Col lg='4'>
 
@@ -26,8 +30,28 @@ export default function DataItem(props) {
                     </CardText>
     
                 </CardBody>
-            </Card>
 
+                <CardBody>
+                    <ButtonGroup>
+                        <Button
+                            color="primary"
+                            outline
+                            onClick={( ) => navigate('/edit')}
+                        >
+                            Edit
+                        </Button>
+
+                        <Button
+                            color="danger"
+                            outline
+                            onClick={( ) => navigate('/delete')}
+                        >
+                            Delete
+                        </Button>
+                    </ButtonGroup>
+                    
+                </CardBody>
+            </Card>
         </Col>
     );
 }

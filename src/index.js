@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import DataForm from './components/DataForm';
+import DataEdit from './components/DataEdit';
 
 const routes = createBrowserRouter([
     {
@@ -12,6 +13,10 @@ const routes = createBrowserRouter([
     {
         path: '/add', 
         element: <DataForm/>
+    },
+    {
+        path: '/edit',
+        element: <DataEdit/>
     }
 ]);
 
