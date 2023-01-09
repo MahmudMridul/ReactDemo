@@ -36,7 +36,12 @@ export default function DataItem(props) {
                         <Button
                             color="primary"
                             outline
-                            onClick={( ) => navigate('/edit')}
+                            onClick={( ) => navigate('/edit', {
+                                    state : {
+                                        data: props.obj
+                                    }
+                                }
+                            )}
                         >
                             Edit
                         </Button>
@@ -45,6 +50,7 @@ export default function DataItem(props) {
                             color="danger"
                             outline
                             onClick={( ) => navigate('/delete')}
+                            
                         >
                             Delete
                         </Button>

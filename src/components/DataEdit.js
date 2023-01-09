@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import style from '../css/DataForm.module.css';
 import Navigation from './layouts/Navigation';
 
@@ -10,6 +10,9 @@ export default function DataEdit() {
     const title = useRef();
     const url = useRef();
     const desc = useRef();
+    const temp = useLocation();
+
+    console.log(temp);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -24,10 +27,12 @@ export default function DataEdit() {
             imageUrl: img
         };
 
-        addData(data);
+  
+
+        // addData(data);
     }
 
-    const addData = (data) => {
+    const editData = (data) => {
         fetch('https://fir-879e7-default-rtdb.asia-southeast1.firebasedatabase.app/demodata.json',
             {
                 method: 'POST',
@@ -48,21 +53,21 @@ export default function DataEdit() {
             <form className={style.form} onSubmit={handleSubmit}>
                 <div className={style.control}>
                     <label htmlFor='title'>Title</label>
-                    <input type='text' required id='title' ref={title}/>
+                    <input type='text' required id='title' ref={title} value={temp.state.data.title}/>
                 </div>
 
                 <div className={style.control}>
                     <label htmlFor='image'>Image URL</label>
-                    <input type='url' required id='url' ref={url}/>
+                    <input type='url' required id='url' ref={url} value={temp.state.data.imageUrl}/>
                 </div>
 
                 <div className={style.control}>
                     <label htmlFor='description'>Description</label>
-                    <textarea required rows='5' id='description' ref={desc}></textarea>
+                    <textarea required rows='5' id='description' ref={desc} value={temp.state.data.description}></textarea>
                 </div>
 
                 <div className={style.actions}>
-                    <button>Add</button>
+                    <button>Update</button>
                 </div>
             </form>
         </div>
